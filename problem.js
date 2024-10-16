@@ -9,7 +9,11 @@ const numMapObject = {
 }
 
 const convertToNumber = (str) => {
-    let splited_nums = str.split('').map(char => numMapObject[char]);
+    let splited_nums = str.split('').map(char => numMapObject[char])
+
+    if (!str) {
+      return "Invalid Param"
+    }
 
     return splited_nums.reduce((total, current, index) => {
         const prev = splited_nums[index - 1]
@@ -28,6 +32,8 @@ const convertToNumber = (str) => {
     }, 0)
 }
 
+console.log(convertToNumber("BA"))
+console.log(convertToNumber(""))
 console.log(convertToNumber("AAA"))
 console.log(convertToNumber("RCRZCAB"))
 console.log(convertToNumber("LBAAA"))
